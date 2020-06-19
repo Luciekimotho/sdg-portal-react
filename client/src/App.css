@@ -1093,6 +1093,7 @@ html, body, #root{
 .a2063-goal-div{
   text-align: center;
   padding: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 
@@ -1242,7 +1243,24 @@ html, body, #root{
   background-color: #d7d8da;
   padding: 20px;
   color: #000;
-  font-size: 14px;
+  font-size: 1rem;
+}
+
+.agenda2063-metadata-title{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #132654;
+  letter-spacing: 1.1px;
+}
+
+.agenda2063-metadata{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #132654;
 }
 
  .circle-container .btn:first-child{
@@ -1259,7 +1277,7 @@ html, body, #root{
 .pages-title{
   text-transform: uppercase;
   font-size: 2.5rem;
-  color: black;
+  color: #132654;
 }
 
 
@@ -1506,7 +1524,7 @@ html, body, #root{
 
 .country-profile-title h5{
   text-transform: uppercase;
-  color: black;
+  color: #132654;
 }
 
 .sdg-goal-card{
@@ -1520,11 +1538,11 @@ html, body, #root{
 }
 
 .about-page p{
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 300;
-  line-height: 1.7;
-  color: #132654;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #132654;
 }
 
 .aboutCards h5{
