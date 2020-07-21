@@ -1,33 +1,21 @@
-# base image
-FROM node:12.2.0-alpine as build
+# Dockerfile for client
 
-# set working directory
-WORKDIR /app
+# Stage 1: Build react client
+FROM node:10.16-alpine
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# Working directory be app
+WORKDIR /usr/app
 
-# install and cache app dependencies
-COPY package.json /app/package.json
+COPY package*.json ./
+
+# Install dependencies
 RUN npm config set '@bit:registry' https://node.bit.dev
+RUN npm install 
+RUN npm install react-scripts@3.0.1 -g 
 
-# To handle 'not get uid/gid'
-RUN npm config set unsafe-perm true
+# copy local files to app folder
+COPY . .
 
-RUN npm install --silent
-RUN npm install react-scripts@3.0.1 -g --silent
+EXPOSE 3000
 
-COPY . /app
-RUN npm run build
-
-
-#production environment
-FROM nginx:1.16.0-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-RUN rm  /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
-RUN chown -R nginx:nginx /usr/share/nginx/html
-RUN chmod -R 755 /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-
+CMD ["npm","start"]
