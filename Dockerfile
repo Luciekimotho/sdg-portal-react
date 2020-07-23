@@ -33,8 +33,18 @@ COPY server/package*.json ./
 RUN npm install -qy
 COPY server/ ./
 
-ENV PORT 8080
+ENV PORT 8000
 
-EXPOSE 8080
+EXPOSE 8000
 
 CMD ["npm", "start"]
+
+#production environment
+FROM nginx:1.16.0-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+RUN rm  /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+RUN chown -R nginx:nginx /usr/share/nginx/html
+RUN chmod -R 755 /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

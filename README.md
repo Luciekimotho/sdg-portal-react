@@ -27,10 +27,14 @@ To create a new user run the following command on the command line: <br>
         "password": "mypassword"
         }' 
 
-Docker steps
-1. docker build -t server .
-2. docker run -it -p 3000:8080 server - runs the server app on [http://localhost:3000/](http://localhost:3000/)
+Server Docker steps
+1. `docker build -t server .`
+2. `docker run -it -p 3000:8080 server` - runs the server in development on [http://localhost:3000/](http://localhost:3000/)
 
 Client docker steps
-1. docker build -t client .
-2. docker run -it -p 3000:3000 client
+1. `docker build -t client .`
+2. `docker run -it -p 3000:3000 client` - runs the client in development 
+
+Overall docker command:
+`docker-compose up --build` 
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
