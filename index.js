@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const path = require("path");
 
-const PORT = 8888;
+const PORT = 8089;
 let app = express();
 
 const CLIENT_BUILD_PATH = path.join(__dirname, "/client/build");
